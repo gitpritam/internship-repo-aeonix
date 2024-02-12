@@ -1,0 +1,9 @@
+1. Array Higher Order Methods - map, filter, reduce, forEach, sort, find
+2. ES6 Concepts : arrow functions, import and exports, single liner executions
+3. Async Javascript Net Ninja : https://www.youtube.com/watch?v=ZcQyJ-gxke0&list=PL4cUxeGkcC9jx2TTZk3IGWKSbtugYdrlu
+4. Git and GitHUB
+
+Note
+- Create a repository on your personal github and push every code that you are learning in the tutorial
+- After completion send the repo link to aroy@aeonixinnovations.com | smukherjee@aeonixinnovations.com
+- 
