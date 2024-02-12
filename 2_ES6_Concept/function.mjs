@@ -5,3 +5,9 @@ function printName(name) {
 }
 
 printName("Pritam");
+
+const testExpression = function (name) {
+  return name;
+};
+
+console.log(testExpression("Majhi"));
