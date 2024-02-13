@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Product List</title>
+</head>
+
+<body>
+    <h1>All Product List (card or list)</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>PRODUCT NAME</th>
+            <th>PRICE</th>
+            <th>OPTIONS</th>
+        </tr>
+
+        <% data.forEach(item=>{ %>
+            <% console.log(item)%>
+                <tr>
+                    <td>
+                        <%= item.id %>
+                    </td>
+                    <td>
+                        <%= item.name %>
+                    </td>
+                    <td>
+                        <%= item.price %>
+                    </td>
+                    <td><button id="edit">Edit</button></td>
+                    <td><button id="delete">Delete</button></td>
+                </tr>
+                <% }); %>
+    </table>
+    <script>
+        // const edit
+    </script>
+</body>
+
+</html>

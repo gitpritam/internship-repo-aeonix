@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+</head>
+
+<body>
+    <h1>Add Product</h1>
+    <form id="productForm">
+        <label for="name">Product Name</label>
+        <input type="text" name="name" placeholder="Product Name">
+        <label for="price">Price</label>
+        <input type="number" name="price" placeholder="Price">
+        <input type="submit" value="Submit">
+    </form>
+
+
+    <script>
+        const form = document.getElementById("productForm");
+        form.addEventListener("submit", e => {
+            e.preventDefault();
+            const name = form.elements["name"].value;
+            const price = form.elements["price"].value;
+            const newProduct = { name, price };
+            console.log(newProduct)
+            fetch("/product/add", {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newProduct)
+
+            }).then(res => {
+                if (!res.ok) {
+                    throw new Error("Not added")
+                }
+                return res.json();
+            }).then(data => {
+                alert(`${data.data.id} ${data.data.name} ${data.data.price}`)
+                // console.log(data.data)
+                form.reset()
+            }).catch(err => {
+                alert(err)
+            })
+        });
+    </script>
+</body>
+
+</html>

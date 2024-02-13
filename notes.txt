@@ -1,9 +1,29 @@
-1. Array Higher Order Methods - map, filter, reduce, forEach, sort, find
-2. ES6 Concepts : arrow functions, import and exports, single liner executions
-3. Async Javascript Net Ninja : https://www.youtube.com/watch?v=ZcQyJ-gxke0&list=PL4cUxeGkcC9jx2TTZk3IGWKSbtugYdrlu
-4. Git and GitHUB
+1. Server creation using http module and express framework (recommended)
+2. MongoDB Connections
+3. Middlewares - CORS, bodyParsers and other middleware
+4. API Controllers
+5. What are the Rest APIs? Why we use RestAPI
+6. Routings
+7. HTTP Request - API :
+- lets suppose take an example of a product apis
+a. Get All products
+b. Get Particular Products
+c. Delete a single Product
+d. Edit a particular product
+e. Add a particular product
 
-Note
-- Create a repository on your personal github and push every code that you are learning in the tutorial
-- After completion send the repo link to aroy@aeonixinnovations.com | smukherjee@aeonixinnovations.com
-- 
+8. Express Templates usage
+9. How to use Postman to test APIs
+10. Route Params and Route Query
+11. File Handling using nodejs
+
+- ES6 syntax
+- How to setup ESLint for NodeJS - ES6, ...etc
+- Proper File Folder Structure
+
+=======================================================
+1. Authentication System
+- JWT Auth
+- Login
+- Registration
+- Logout
