@@ -1,0 +1,72 @@
+//show databases
+show dbs
+
+//use a database
+use databaseName
+
+//show working database
+db
+
+//View Collections
+show collections
+
+//view and target collection
+db.collectionName
+
+//add single document
+db.collectionName.insertOne({title: "Hello", price: 80})
+
+//add multiple documents
+db.collectionName.insertMany([{title: "hello",price: 80},{title: "hello2", price: 100}]);
+
+//find all documents - max 20 result at a time
+db.collectionName.find()
+
+//filter
+db.collectionName.find({price: 80})
+
+//filter and show few field
+db.collectionName.find({price: 80},{title: 1})
+
+//sort, limit, count
+db.collectionName.find({price: 80},{title: 1}).sort({title: 1})
+
+//nested documents
+db.collectionName.insertOne({title: "Hello", price: 80, review:[{name: "pritam"}]})
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+//OPERATOR
+//gt, gte, lt, lte, 
+db.collectionName.find({price: {$gt: 80}})
+
+//or operator
+db.collectionName.find({$or: [{price: 80}, {price: 100}]})
+
+//in , nin operator
+db.collectionName.find({price: {$in:[80,100]}})
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+//queries arrays of string
+db.collectionName.find({genre: ["magic"]})      -> this will find the exact match
+db.collectionName.find({genre: "magic"})        -> this will not find the exact match
+
+//queries arrays of object
+db.collectionName.find({"genre.name": ["magic"]})      -> this will not find the exact match
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Delete document
+db.collectionName.deleteOne({_id: ObjectId(".............")})
+
+//update document
+db.collectionName.updateOne({id: ObjectId(".....")},{$set: {title: "ppppp"}})
+
+//inc, push, pull operator
+//increment or decrement
+// push or pull from array
+db.collectionName.updateOne({id: ObjectId("...........")},{$push: {genre: "fantasy"}})
+
+//each operator -> add list to array
+db.collectionName.updateOne({id: ObjectId("...........")},{$push: {genre: {$each: ["magic", "horror"]}}})

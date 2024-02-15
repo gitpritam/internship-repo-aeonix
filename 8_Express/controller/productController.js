@@ -20,11 +20,41 @@ exports.getProduct = (req, res) => {
 
 // c. Delete a single Product
 exports.deleteProduct = (req, res) => {
-  //
+  const id = parseInt(req.params.id);
+  console.log(id);
+  if (id < 0 || id > productList.length) {
+    res.status(404).json({
+      status: "error",
+      message: "Product Not Found",
+    });
+  }
+  productList.splice(id - 1, 1);
+  res.status(200).json({
+    status: "success",
+  });
 };
+
 // d. Edit a particular product
 exports.patchProduct = (req, res) => {
-  //
+  const data = req.body;
+  const id = parseInt(req.params.id);
+  console.log(id);
+  console.log("data from the body", data, id);
+  productList[id - 1] = {
+    id,
+    ...data,
+  };
+  if (id < 1 || id > productList.length) {
+    return res.status(404).json({
+      status: "error",
+      message: "Product Not Found",
+    });
+  }
+  res.status(200).json({
+    status: "success",
+    data: productList[id - 1],
+    message: "Product Details Changed Successfully",
+  });
 };
 // e. Add a particular product - api-post
 exports.addProduct = (req, res) => {
@@ -38,6 +68,8 @@ exports.addProduct = (req, res) => {
   res.status(201).json({
     status: "success",
     data: newProduct,
-    Message: "New Product added",
+    message: "New Product added",
   });
 };
+
+// f.

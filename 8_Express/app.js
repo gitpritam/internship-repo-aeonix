@@ -32,6 +32,8 @@ app.get("/product/:id", (req, res) => {
 /********************************************************** */
 //for post, update and delete
 app.post("/product/add", productController.addProduct);
+//get before patch
+// app.get("/product/:id/edi", productController.getProductForPatch);
 app.patch("/product/:id", productController.patchProduct);
 app.delete("/product/:id", productController.deleteProduct);
 
