@@ -29,7 +29,7 @@ export const getProduct = async (req, res) => {
       status: "success",
       length: data.length,
       msg: "Product Found Successfully",
-      data: data,
+      result: data,
     });
   } catch (err) {
     return res.status(500).json({
@@ -53,7 +53,7 @@ export const getSingleProduct = async (req, res) => {
     return res.status(200).json({
       status: "success",
       msg: "Product Found Successfully",
-      data: data,
+      result: data,
     });
   } catch (err) {
     return res.status(500).json({
@@ -87,15 +87,18 @@ export const editProduct = async (req, res) => {
 
 export const deleteProduct = async (req, res) => {
   try {
+    console.log(req.params);
     const { id } = req.params;
+    console.log(id);
     const data = await Product.findByIdAndDelete(id);
+    console.log(data);
     if (!data) {
       return res.status(404).json({
         status: "error",
         msg: "Data not found",
       });
     }
-    return res.status(204).json({
+    res.status(204).json({
       status: "success",
       msg: "Product deleted Successfully",
     });
